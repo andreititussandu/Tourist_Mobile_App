@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Proiect_Sandu Andrei-Titus</string>
+    <string name="initial">Hello World</string>
+    <string name="attractions_list">Lista atractii</string>
+    <string name="photo_gallery">Galerie foto</string>
+    <string name="events_list">Lista evenimente</string>
+    <string name="settings">Setari</string>
+    <string name="feedback">Recenzii</string>
+</resources>
