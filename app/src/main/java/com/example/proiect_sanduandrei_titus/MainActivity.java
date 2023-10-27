@@ -57,7 +57,8 @@ public class MainActivity extends AppCompatActivity {
 
         }
         if(item.getItemId()==R.id.menu_feedback) {
-
+            Intent feedbackIntent = new Intent(getApplicationContext(), FeedbackActivity.class);
+            startActivity(feedbackIntent);
         }
         mainInitial.setText(item.getTitle());
         return true;
