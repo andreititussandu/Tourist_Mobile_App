@@ -11,4 +11,5 @@ public class EventsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events);
     }
+    //aici sa adaug un datepicker pt evenimente
 }

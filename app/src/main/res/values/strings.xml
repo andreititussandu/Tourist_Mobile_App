@@ -7,6 +7,10 @@
     <string name="settings">Setari</string>
     <string name="feedback">Recenzii</string>
     <string name="back">Inapoi</string>
+    <string name="name">Nume</string>
+    <string name="email">Email</string>
+    <string name="choose_attraction">Alege atractia turistica</string>
+    <string name="choose_rating">Alege Evaluarea (de la 1 la 5 stele)</string>
     <string name="title_activity_settings">SettingsActivity</string>
 
     <!-- Preference Titles -->
