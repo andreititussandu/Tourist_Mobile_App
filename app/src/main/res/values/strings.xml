@@ -11,6 +11,7 @@
     <string name="email">Email</string>
     <string name="choose_attraction">Alege atractia turistica</string>
     <string name="choose_rating">Alege Evaluarea (de la 1 la 5 stele)</string>
+    <string name="submit">Trimite</string>
     <string name="title_activity_settings">SettingsActivity</string>
 
     <!-- Preference Titles -->
@@ -27,4 +28,6 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="invalid_name">Numele este invalid. Sunt necesare minim 3 caractere</string>
+    <string name="invalid_email">Introduceti un email valid</string>
 </resources>

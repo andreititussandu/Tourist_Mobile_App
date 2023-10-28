@@ -22,21 +22,32 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initComponents();
+    }
 
-        //mainInitial = findViewById(R.id.main_initial);
-        fabAttractions=findViewById(R.id.fab_main_attractions);
+    private void initComponents() {
+        fabAttractions = findViewById(R.id.fab_main_attractions);
+        fabEvents = findViewById(R.id.fab_main_events);
+
+        setFabAttractionsListener();
+        setFabEventsListener();
+    }
+
+    private void setFabAttractionsListener() {
         fabAttractions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(), AttractionsActivity.class);
+                Intent intent = new Intent(MainActivity.this, AttractionsActivity.class);
                 startActivity(intent);
             }
         });
-        fabEvents=findViewById(R.id.fab_main_events);
+    }
+
+    private void setFabEventsListener() {
         fabEvents.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),EventsActivity.class);
+                Intent intent = new Intent(MainActivity.this, EventsActivity.class);
                 startActivity(intent);
             }
         });
@@ -51,7 +62,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId()==R.id.menu_settings) {
-
+            Intent feedbackIntent = new Intent(getApplicationContext(), SettingsActivity.class);
+            startActivity(feedbackIntent);
         }
         if(item.getItemId()==R.id.menu_photo_gallery) {
 
@@ -60,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
             Intent feedbackIntent = new Intent(getApplicationContext(), FeedbackActivity.class);
             startActivity(feedbackIntent);
         }
-        mainInitial.setText(item.getTitle());
         return true;
     }
 
