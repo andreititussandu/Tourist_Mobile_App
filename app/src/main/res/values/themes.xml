@@ -6,12 +6,12 @@
     </style>
 
     <style name="Theme.Proiect_SanduAndreiTitus" parent="Base.Theme.Proiect_SanduAndreiTitus" >
-        <item name="colorPrimary">#3498db</item>
+        <item name="colorPrimary">@color/dark_blue</item>
         <item name="android:textSize">16sp</item>
-        <item name="android:textColorSecondary">#27ae60</item> -->
-        <!-- <item name="android:fontFamily">@font/your_font</item> Use your own font -->
-        <!-- <item name="android:windowBackground">@drawable/your_drawable</item> Use your own drawable -->
-        <!--<item name="android:buttonStyle">@style/YourButtonStyle</item>  Use your own button style -->
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:windowBackground">@drawable/babele</item>
+        <item name="android:listViewStyle">@style/CardView.Light</item>
 
     </style>
 </resources>
