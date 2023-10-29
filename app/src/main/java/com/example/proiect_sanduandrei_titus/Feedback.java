@@ -1,6 +1,8 @@
 package com.example.proiect_sanduandrei_titus;
 
-public class Feedback {
+import java.io.Serializable;
+
+public class Feedback implements Serializable {
     private String name;
     private String email;
     private String attraction;

@@ -30,4 +30,5 @@
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="invalid_name">Numele este invalid. Sunt necesare minim 3 caractere</string>
     <string name="invalid_email">Introduceti un email valid</string>
+    <string name="invalid_rating">Evaluarea este de minim o stea</string>
 </resources>

@@ -2,6 +2,7 @@ package com.example.proiect_sanduandrei_titus;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,17 +15,20 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class FeedbackActivity extends AppCompatActivity {
+    private Intent intent;
     private Spinner spnChooseAttraction;
     private Button btnSubmit;
     private TextInputEditText tietName;
     private TextInputEditText tietEmail;
     private RatingBar rbUserRating;
+    public static final String FEEDBACK_KEY="feedback_key";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback);
         initComponents();
+        intent=getIntent();
     }
 
     private void initComponents(){
@@ -49,7 +53,9 @@ public class FeedbackActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(isValid()){
                     Feedback feedback=buildFeedback();
-                    Log.i("FeedbackActivity", feedback.toString());
+                    intent.putExtra(FEEDBACK_KEY,feedback);
+                    setResult(RESULT_OK, intent);
+                    finish();
                 }
             }
         };
@@ -71,6 +77,10 @@ public class FeedbackActivity extends AppCompatActivity {
         if(tietEmail.getText()==null || tietEmail.getText().toString().trim().length()<10
         || !tietEmail.getText().toString().trim().contains("@")){
             Toast.makeText(getApplicationContext(), R.string.invalid_email, Toast.LENGTH_LONG).show();
+            return false;
+        }
+        if (rbUserRating.getRating() < 1) {
+            Toast.makeText(getApplicationContext(), R.string.invalid_rating, Toast.LENGTH_LONG).show();
             return false;
         }
         return true;
