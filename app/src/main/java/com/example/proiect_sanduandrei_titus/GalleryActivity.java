@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 public class GalleryActivity extends AppCompatActivity {
-    private ImageView igSfinx;
+    private ImageView ivSfinx;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

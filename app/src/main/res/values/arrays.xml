@@ -16,4 +16,10 @@
         <item>Turnul Chindiei</item>
         <item>Manastirea Dealu</item>
     </string-array>
+
+    <string-array name="events_list">
+        <item>Teatrul Tony Bulandra - Pinocchio</item>
+        <item>Stadionul Eugen Popescu - Chindia vs. Petrolul</item>
+        <item>Curtea Domneasca - Ziua Armatei Romane</item>
+    </string-array>
 </resources>
