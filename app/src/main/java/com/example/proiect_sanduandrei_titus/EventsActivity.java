@@ -1,6 +1,7 @@
 package com.example.proiect_sanduandrei_titus;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -10,9 +11,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EventsActivity extends AppCompatActivity {
     private Button btnBack;
-    private ListView lvEvents;
+    private RecyclerView rvEvents;
+    private List<Event> events;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,10 +28,21 @@ public class EventsActivity extends AppCompatActivity {
     //to add datepicker for viewing events in a specific time period for next phase
     private void initComponents() {
         btnBack = findViewById(R.id.btn_events_back);
-        lvEvents = findViewById(R.id.lv_events);
+        rvEvents = findViewById(R.id.rv_events);
 
+        String[] locations = getResources().getStringArray(R.array.event_locations);
+        String[] names = getResources().getStringArray(R.array.event_names);
+        String[] dates = getResources().getStringArray(R.array.event_dates);
+        events=new ArrayList<>();
+
+        for (int i = 0; i < locations.length; i++) {
+            Event event = new Event(locations[i], names[i], dates[i]);
+            events.add(event);
+        }
+
+        rvEvents.setLayoutManager(new LinearLayoutManager(this));
+        rvEvents.setAdapter(new EventAdapter(getApplicationContext(), events));
         setListener();
-        setupListView();
     }
 
     private void setListener() {
@@ -37,11 +53,5 @@ public class EventsActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-
-    private void setupListView() {
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                this, R.array.events_list, android.R.layout.simple_list_item_1);
-        lvEvents.setAdapter(adapter);
     }
 }

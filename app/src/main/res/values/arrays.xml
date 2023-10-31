@@ -17,9 +17,21 @@
         <item>Manastirea Dealu</item>
     </string-array>
 
-    <string-array name="events_list">
-        <item>Teatrul Tony Bulandra - Pinocchio</item>
-        <item>Stadionul Eugen Popescu - Chindia vs. Petrolul</item>
-        <item>Curtea Domneasca - Ziua Armatei Romane</item>
+    <string-array name="event_locations">
+        <item>Teatrul Tony Bulandra</item>
+        <item>Stadionul Eugen Popescu</item>
+        <item>Curtea Domneasca</item>
+    </string-array>
+
+    <string-array name="event_names">
+        <item>Pinocchio</item>
+        <item>Chindia vs. Petrolul</item>
+        <item>Ziua Armatei Romane</item>
+    </string-array>
+
+    <string-array name="event_dates">
+        <item>18 Nov. 2023</item>
+        <item>31 Oct. 2023</item>
+        <item>25 Oct. 2023</item>
     </string-array>
 </resources>
