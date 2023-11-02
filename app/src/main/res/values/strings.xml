@@ -16,9 +16,12 @@
     <string name="invalid_name">Numele este invalid. Sunt necesare minim 3 caractere</string>
     <string name="invalid_email">Introduceti un email valid</string>
     <string name="invalid_rating">Evaluarea este de minim o stea</string>
+    <string name="navigation_drawer_open">Deschide</string>
+    <string name="navigation_drawer_close">Inchide</string>
 
     <string name="location_services_title">Servicii de locatie</string>
     <string name="location_services_summary">Activeaza servicii pe baza locatiei</string>
     <string name="push_notifications_title">Notificari</string>
     <string name="push_notifications_summary">Activeaza notificari</string>
+
 </resources>

@@ -5,7 +5,10 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,8 +18,10 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
     private List<Feedback> feedbackList=new ArrayList<>();
     private ListView lvFeedback;
     private ActivityResultLauncher<Intent> feedbackLauncher;
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +44,39 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initComponents();
         feedbackLauncher=registerFeedbackLauncher();
+        setupToggle();
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                int id = menuItem.getItemId();
+
+                if(id==R.id.menu_settings) {
+                    Intent settingsIntent = new Intent(getApplicationContext(), SettingsActivity.class);
+                    startActivity(settingsIntent);
+                }
+                if(id==R.id.menu_photo_gallery) {
+                    Intent galleryIntent = new Intent(getApplicationContext(), GalleryActivity.class);
+                    startActivity(galleryIntent);
+                }
+                if(id==R.id.menu_feedback) {
+                    Intent feedbackIntent = new Intent(getApplicationContext(), FeedbackActivity.class);
+                    feedbackLauncher.launch(feedbackIntent);
+                }
+
+                drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
+            }
+        });
     }
+
 
     private void initComponents() {
         fabAttractions = findViewById(R.id.fab_main_attractions);
         fabEvents = findViewById(R.id.fab_main_events);
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+        toolbar = findViewById(R.id.toolbar_id);
 
         setFabAttractionsListener();
         setFabEventsListener();
@@ -49,10 +85,11 @@ public class MainActivity extends AppCompatActivity {
         lvAdapter();
     }
 
-    private void lvAdapter() {
-        ArrayAdapter<Feedback> adapter=new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1,
-                feedbackList);
-        lvFeedback.setAdapter(adapter);
+    private void setupToggle() {
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
     }
 
     private void setFabAttractionsListener() {
@@ -75,6 +112,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void lvAdapter() {
+        ArrayAdapter<Feedback> adapter=new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1,
+                feedbackList);
+        lvFeedback.setAdapter(adapter);
+    }
     private ActivityResultLauncher<Intent> registerFeedbackLauncher() {
         return registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
             if (result.getResultCode() == RESULT_OK && result.getData()!= null) {
@@ -87,30 +129,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId()==R.id.menu_settings) {
-            Intent settingsIntent = new Intent(getApplicationContext(), SettingsActivity.class);
-            startActivity(settingsIntent);
-        }
-        if(item.getItemId()==R.id.menu_photo_gallery) {
-            Intent galleryIntent = new Intent(getApplicationContext(), GalleryActivity.class);
-            startActivity(galleryIntent);
-        }
-        if(item.getItemId()==R.id.menu_feedback) {
-            Intent feedbackIntent = new Intent(getApplicationContext(), FeedbackActivity.class);
-            feedbackLauncher.launch(feedbackIntent);
-        }
-        return true;
     }
 
     @Override
