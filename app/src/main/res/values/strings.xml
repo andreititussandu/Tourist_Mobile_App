@@ -9,6 +9,8 @@
     <string name="back">Inapoi</string>
     <string name="name">Nume</string>
     <string name="email">Email</string>
+    <string name="attraction">Atractie</string>
+    <string name="rating">Evaluare</string>
     <string name="choose_attraction">Alege atractia turistica</string>
     <string name="choose_rating">Alege Evaluarea (de la 1 la 5 stele)</string>
     <string name="submit">Trimite</string>
@@ -23,5 +25,7 @@
     <string name="location_services_summary">Activeaza servicii pe baza locatiei</string>
     <string name="push_notifications_title">Notificari</string>
     <string name="push_notifications_summary">Activeaza notificari</string>
+
+    <string name="feedback_image">Imagine recenzie</string>
 
 </resources>

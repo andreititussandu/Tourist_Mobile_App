@@ -1,7 +1,5 @@
 package com.example.proiect_sanduandrei_titus;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
@@ -12,7 +10,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -113,8 +110,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void lvAdapter() {
-        ArrayAdapter<Feedback> adapter=new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1,
-                feedbackList);
+//        ArrayAdapter<Feedback> adapter=new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1,
+//                feedbackList);
+        FeedbackAdapter adapter=new FeedbackAdapter(getApplicationContext(),R.layout.lv_cell_feedback_view,
+                feedbackList,getLayoutInflater());
         lvFeedback.setAdapter(adapter);
     }
     private ActivityResultLauncher<Intent> registerFeedbackLauncher() {
