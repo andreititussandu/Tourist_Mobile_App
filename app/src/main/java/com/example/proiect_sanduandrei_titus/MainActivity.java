@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView mainInitial;
     private FloatingActionButton fabAttractions;
     private FloatingActionButton fabEvents;
+    private FloatingActionButton fabHotels;
     private List<Feedback> feedbackList=new ArrayList<>();
     private ListView lvFeedback;
     private ActivityResultLauncher<Intent> feedbackLauncher;
@@ -71,12 +72,14 @@ public class MainActivity extends AppCompatActivity {
     private void initComponents() {
         fabAttractions = findViewById(R.id.fab_main_attractions);
         fabEvents = findViewById(R.id.fab_main_events);
+        fabHotels=findViewById(R.id.fab_main_hotels);
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar_id);
 
         setFabAttractionsListener();
         setFabEventsListener();
+        setFabHotelsListener();
 
         lvFeedback=findViewById(R.id.lv_main_feedback);
         lvAdapter();
@@ -104,6 +107,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, EventsActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void setFabHotelsListener() {
+        fabHotels.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, HotelActivity.class);
                 startActivity(intent);
             }
         });

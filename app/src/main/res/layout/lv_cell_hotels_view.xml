@@ -6,26 +6,26 @@
     android:background="@color/white">
 
     <ImageView
-        android:id="@+id/cell_lv_image"
+        android:id="@+id/cell_lv_hotel_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/baseline_feedback_24"
-        android:contentDescription="@string/feedback_image"
+        android:src="@drawable/baseline_hotel_24"
+        android:contentDescription="@string/hotel_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/cell_lv_name"/>
+        app:layout_constraintEnd_toStartOf="@id/cell_lv_hotel_name"/>
 
     <TextView
-        android:id="@+id/cell_lv_name"
+        android:id="@+id/cell_lv_hotel_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/name"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/cell_lv_image"
+        app:layout_constraintStart_toEndOf="@id/cell_lv_hotel_image"
         app:layout_constraintEnd_toStartOf="@id/cell_lv_hotel_town"
         app:layout_constraintBottom_toTopOf="@id/cell_lv_hotel_address"/>
 
@@ -37,7 +37,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/email"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/cell_lv_name"
+        app:layout_constraintStart_toEndOf="@id/cell_lv_hotel_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/cell_lv_hotel_address"/>
 
@@ -49,19 +49,8 @@
         android:layout_marginTop="8dp"
         android:text="@string/attraction"
         app:layout_constraintTop_toBottomOf="@id/cell_lv_hotel_town"
-        app:layout_constraintStart_toEndOf="@id/cell_lv_image"
+        app:layout_constraintStart_toEndOf="@id/cell_lv_hotel_image"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/cell_lv_rating"/>
-
-    <TextView
-        android:id="@+id/cell_lv_rating"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/rating"
-        app:layout_constraintTop_toBottomOf="@id/cell_lv_hotel_address"
-        app:layout_constraintStart_toEndOf="@id/cell_lv_image"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

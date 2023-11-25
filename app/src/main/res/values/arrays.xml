@@ -34,4 +34,19 @@
         <item>31 Oct. 2023</item>
         <item>25 Oct. 2023</item>
     </string-array>
+
+    <string-array name="hotel_names">
+        <item>Hotel Valahia</item>
+        <item>Hotel Rodiv</item>
+    </string-array>
+
+    <string-array name="hotel_towns">
+        <item>Targoviste</item>
+        <item>Gaesti</item>
+    </string-array>
+
+    <string-array name="hotel_addresses">
+        <item>Bulevardul Libertății 7</item>
+        <item>Strada Academician Serban Cioculescu, 1</item>
+    </string-array>
 </resources>
