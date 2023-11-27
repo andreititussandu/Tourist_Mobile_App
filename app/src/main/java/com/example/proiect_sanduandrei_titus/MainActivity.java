@@ -25,7 +25,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView mainInitial;
     private FloatingActionButton fabAttractions;
     private FloatingActionButton fabEvents;
     private FloatingActionButton fabHotels;
