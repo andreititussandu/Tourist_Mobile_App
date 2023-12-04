@@ -109,7 +109,7 @@
                 android:layout_height="wrap_content"
                 android:clickable="true"
                 android:contentDescription="@string/hotels_list"
-                android:src="@android:drawable/ic_input_add"
+                android:src="@drawable/baseline_hotel_24"
                 app:layout_constraintHorizontal_bias="0.7"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/fab_main_events"

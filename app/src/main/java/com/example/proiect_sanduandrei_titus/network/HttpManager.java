@@ -20,43 +20,55 @@ public class HttpManager {
         this.urlAddress = urlAddress;
     }
 
-    public String process(){
+    public String process() {
         try {
-            url= new URL(urlAddress);
-            connection= (HttpURLConnection) url.openConnection();
-            inputStream=connection.getInputStream();
-            inputStreamReader=new InputStreamReader(inputStream);
-            bufferedReader=new BufferedReader(inputStreamReader);
-            StringBuilder result=new StringBuilder();
+            url = new URL(urlAddress);
+            connection = (HttpURLConnection) url.openConnection();
+            inputStream = connection.getInputStream();
+            inputStreamReader = new InputStreamReader(inputStream);
+            bufferedReader = new BufferedReader(inputStreamReader);
+
+            StringBuilder result = new StringBuilder();
             String line;
-            while ((line=bufferedReader.readLine())!=null){
+            while ((line = bufferedReader.readLine()) != null) {
                 result.append(line);
             }
+
             return result.toString();
         } catch (IOException e) {
             throw new RuntimeException(e);
-        }
-        finally {
+        } finally {
             closeConnection();
         }
     }
 
-    private void closeConnection(){
-        try {
-            bufferedReader.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+    private void closeConnection() {
+        if (bufferedReader != null) {
+            try {
+                bufferedReader.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
-        try {
-            inputStreamReader.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+
+        if (inputStreamReader != null) {
+            try {
+                inputStreamReader.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
-        try {
-            inputStream.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+
+        if (inputStream != null) {
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
-        connection.disconnect();
+
+        if (connection != null) {
+            connection.disconnect();
+        }
     }
 }

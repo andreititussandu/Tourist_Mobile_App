@@ -29,5 +29,14 @@
     <string name="feedback_image">Imagine recenzie</string>
     <string name="hotel_image">Imagine hotel</string>
     <string name="hotels_list">Lista hoteluri</string>
+    <string name="location">Locatie</string>
+
+    <string name="cleanliness_label">Curatenie:</string>
+    <string name="service_label">Servicii:</string>
+    <string name="amenities_label">Dotari:</string>
+
+    <string name="pool_label">Piscina</string>
+    <string name="gym_label">Fitness</string>
+    <string name="spa_label">Spa</string>
 
 </resources>

@@ -50,9 +50,9 @@ public class Feedback implements Serializable {
     @Override
     public String toString() {
         return "Feedback: " +
-                "name='" + name + '\'' +
+                "Nume='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", attraction='" + attraction + '\'' +
-                ", rating=" + rating;
+                ", atractie='" + attraction + '\'' +
+                ", evaluare=" + rating;
     }
 }

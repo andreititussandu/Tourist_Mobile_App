@@ -33,19 +33,21 @@ public class HotelsAdapter extends ArrayAdapter<Hotel> {
         View view=inflater.inflate(resource,parent,false);
         Hotel hotel=hotelList.get(position);
         addHotelName(view,hotel.getHotelName());
-        addHotelTown(view,hotel.getTown());
-        addHotelAddress(view, hotel.getAddress());
+        addHotelLocation(view,hotel.getLocation());
+        addHotelRatings(view, hotel.getRatings());
         return view;
     }
 
-    private void addHotelAddress(View view, String hotelAddress) {
-        TextView textView=view.findViewById(R.id.cell_lv_hotel_address);
-        textView.setText(hotelAddress);
+    private void addHotelRatings(View view, Hotel.Ratings ratings) {
+        TextView textView=view.findViewById(R.id.cell_lv_hotel_ratings);
+        String ratingsText = ratings.getCleanliness() + "\n" + ratings.getService() +
+                "\n" + ratings.getAmenities().toString();
+        textView.setText(ratingsText);
     }
 
-    private void addHotelTown(View view, String hotelTown) {
-        TextView textView=view.findViewById(R.id.cell_lv_hotel_town);
-        textView.setText(hotelTown);
+    private void addHotelLocation(View view, String hotelLocation) {
+        TextView textView=view.findViewById(R.id.cell_lv_hotel_location);
+        textView.setText(hotelLocation);
     }
 
     private void addHotelName(View view, String hotelName) {

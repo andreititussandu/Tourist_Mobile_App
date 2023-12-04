@@ -45,12 +45,12 @@ public class FeedbackAdapter extends ArrayAdapter<Feedback> {
     }
 
     private void addFeedbackAttraction(View view, String attraction) {
-        TextView textView=view.findViewById(R.id.cell_lv_hotel_address);
+        TextView textView=view.findViewById(R.id.cell_lv_hotel_ratings);
         textView.setText(attraction);
     }
 
     private void addFeedbackEmail(View view, String email) {
-        TextView textView=view.findViewById(R.id.cell_lv_hotel_town);
+        TextView textView=view.findViewById(R.id.cell_lv_hotel_location);
         textView.setText(email);
     }
 
