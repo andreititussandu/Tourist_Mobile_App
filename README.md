@@ -1,6 +1,6 @@
 # Designing a Mobile App for Home County Tourists using Android Studio
 
-#Features
+# Features
 1. Activities/Fragments
 The app includes six activities/fragments, each carefully crafted to provide a seamless user experience. These components are populated with appropriate visual controls to enhance user interaction.
 
